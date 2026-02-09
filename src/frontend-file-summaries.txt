@@ -1,0 +1,15 @@
+{
+  "frontend/src/siteConfig.ts": "Centralized configuration file containing all server metadata, rules, features, and contact information for the Cooper SMP website.",
+  "frontend/src/App.tsx": "Main application component that renders the complete site layout with all sections in order.",
+  "frontend/src/components/SiteLayout.tsx": "Layout wrapper component providing consistent structure with navigation header and footer.",
+  "frontend/src/components/SiteNav.tsx": "Responsive navigation header with logo, smooth-scroll links, and mobile menu toggle.",
+  "frontend/src/components/HeroSection.tsx": "Hero section featuring server logo, background image, server name, tagline, and primary call-to-action.",
+  "frontend/src/components/FeaturesSection.tsx": "Grid display of server features with icons highlighting key benefits of joining Cooper SMP.",
+  "frontend/src/components/HowToJoinSection.tsx": "Step-by-step guide for joining the server with copyable server address and clear instructions.",
+  "frontend/src/components/RulesSection.tsx": "Server rules display with numbered cards and important notice about rule enforcement.",
+  "frontend/src/components/ContactSection.tsx": "Contact section with Discord integration and community information cards.",
+  "frontend/src/components/Footer.tsx": "Site footer with server info, quick links, and attribution including dynamic year and caffeine.ai credit with UTM tracking parameters.",
+  "frontend/src/index.css": "Global styles with Minecraft-inspired earthy color palette using OKLCH (grass greens, stone grays, wood browns) for both light and dark modes.",
+  "frontend/tailwind.config.js": "Tailwind configuration with custom container settings and extended theme matching the Minecraft aesthetic.",
+  "frontend/src/hooks/useQueries.ts": "Empty hooks file as backend has no methods; all data is frontend-configured."
+}

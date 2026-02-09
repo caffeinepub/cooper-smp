@@ -1,0 +1,61 @@
+{
+  "kind": "build_request",
+  "title": "Replace Cooper SMP logo and hero banner with uploaded artwork and confirm Discord link",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-6",
+      "text": "Replace the current static images used for the site logo and the hero/banner background with the user-uploaded image(s), by placing the chosen uploaded artwork into the existing asset paths and filenames already referenced by the UI (so no code changes are required for the swap). Use the same uploaded artwork for both logo and hero background unless separate logo vs banner crops are available from the uploads.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2",
+          "msg-3"
+        ],
+        "quotes": [
+          "Upload this logo and banner and add this discord link https://discord.gg/coopersmp",
+          "Yes do"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The hero background image renders from /assets/generated/cooper-smp-hero-bg.dim_1920x800.png and visually matches the user-uploaded banner artwork.",
+        "The site logo renders from /assets/generated/cooper-smp-logo.dim_512x512.png in the hero section, navbar, and footer and visually matches the user-uploaded logo artwork.",
+        "All image assets are served as static files from frontend/public/assets/generated (no backend routing for images).",
+        "Images render correctly on desktop and mobile without broken links (no 404s for the two asset URLs)."
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Ensure the Discord link used across the site is set to https://discord.gg/coopersmp and that the Contact section’s Discord button links to it.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Upload this logo and banner and add this discord link https://discord.gg/coopersmp"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The Discord button in the Contact section points to https://discord.gg/coopersmp and opens in a new tab.",
+        "No other Discord URL placeholders remain in the UI or configuration."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit files under frontend/src/components/ui or other immutablePaths listed in SYSTEM_CONTEXT.",
+    "Keep the backend as a single Motoko actor; no backend changes are required for this request."
+  ],
+  "nonGoals": [
+    "Adding new pages/sections (e.g., player status, server stats).",
+    "Changing the site’s overall theme/colors/typography beyond what is necessary to display the new images correctly.",
+    "Adding any new authentication or backend data storage."
+  ],
+  "imageRequirements": {
+    "required": [
+      "User-uploaded Cooper SMP logo artwork (cooper-smp-logo.dim_512x512.png)",
+      "User-uploaded Cooper SMP banner/hero artwork (cooper-smp-hero-bg.dim_1920x800.png)"
+    ],
+    "edits": []
+  }
+}

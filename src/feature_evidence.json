@@ -1,0 +1,21 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-replace-the-current-static-images-used-for-the-site-logo-and-the-hero-banner-background-with-the-user-uploaded-image-s-by-placing-the-chosen-uploaded-artwork-into-the-existing-asset-paths-and-filenames-already-referenced-by-the-ui-so-no-code-changes-are-required-for-the-swap-use-the-same-uploaded-artwork-for-both-logo-and-hero-background-unless-separate-logo-vs-banner-crops-are-available-from-the-uploads",
+      "featureTitle": "Replace the current static images used for the site logo and the hero/banner background with the user-uploaded image(s), by placing the chosen uploaded artwork into the existing asset paths and filenames already referenced by the UI (so no code changes are required for the swap). Use the same uploaded artwork for both logo and hero background unless separate logo vs banner crops are available from the uploads.",
+      "files": [],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Website project for a public EU Minecraft server named Cooper SMP.",
+  "architectural_notes": [
+    "Discord invite URL should be sourced from the site config/constants and rendered consistently (e.g., nav + Contact section).",
+    "Logo and banner assets should be stored as static files in the frontend public assets and referenced by the UI."
+  ],
+  "known_issues": [
+    "Assistant reported project file access was unavailable when attempting to inspect/modify files; may block updating assets.",
+    "Draft app/site was reported as expired and may require rebuild/redeploy before changes can be applied."
+  ],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- User-uploaded Cooper SMP logo artwork (cooper-smp-logo.dim_512x512.png)\n- User-uploaded Cooper SMP banner/hero artwork (cooper-smp-hero-bg.dim_1920x800.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-responsive-marketing-website-for-the-public-eu-minecraft-server-named-cooper-smp-with-a-clear-landing-home-experience-that-communicates-the-server-name-and-that-it-is-an-eu-server",
+      "title": "Create a responsive marketing website for the public EU Minecraft server named “Cooper SMP” with a clear landing (Home) experience that communicates the server name and that it is an EU server.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-site-navigation-and-pages-sections-for-home-how-to-join-rules-and-contact-with-placeholders-for-discord-link-and-server-ip-address-if-not-provided",
+      "title": "Add site navigation and pages/sections for: Home, How to Join, Rules, and Contact (with placeholders for Discord link and server IP/address if not provided).",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-single-editable-configuration-module-on-the-frontend-constants-for-server-metadata-server-name-region-server-ip-address-placeholder-discord-url-placeholder-and-render-these-values-across-the-site-consistently",
+      "title": "Add a single editable configuration module on the frontend (constants) for server metadata (server name, region, server IP/address placeholder, Discord URL placeholder) and render these values across the site consistently.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-establish-a-coherent-visual-theme-for-the-site-colors-typography-spacing-component-style-suitable-for-a-minecraft-server-community-and-apply-it-consistently-across-all-pages-avoid-blue-purple-as-the-primary-palette",
+      "title": "Establish a coherent visual theme for the site (colors, typography, spacing, component style) suitable for a Minecraft server community, and apply it consistently across all pages. Avoid blue/purple as the primary palette.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-required-generated-images-as-static-assets-under-frontend-public-assets-generated-and-use-them-in-the-site-hero-background-and-server-logo",
+      "title": "Add required generated images as static assets under frontend/public/assets/generated and use them in the site (hero background and server logo).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-current-static-images-used-for-the-site-logo-and-the-hero-banner-background-with-the-user-uploaded-image-s-by-placing-the-chosen-uploaded-artwork-into-the-existing-asset-paths-and-filenames-already-referenced-by-the-ui-so-no-code-changes-are-required-for-the-swap-use-the-same-uploaded-artwork-for-both-logo-and-hero-background-unless-separate-logo-vs-banner-crops-are-available-from-the-uploads",
+      "title": "Replace the current static images used for the site logo and the hero/banner background with the user-uploaded image(s), by placing the chosen uploaded artwork into the existing asset paths and filenames already referenced by the UI (so no code changes are required for the swap). Use the same uploaded artwork for both logo and hero background unless separate logo vs banner crops are available from the uploads.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create a website for the public EU Minecraft server “Cooper SMP”.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Replace the site logo and hero/banner with the user-uploaded images and set the Discord link to https://discord.gg/coopersmp.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Ensure the Discord link used across the site is set to https://discord.gg/coopersmp and that the Contact section’s Discord button links to it.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Cooper SMP",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

@@ -1,0 +1,40 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-09T17:12:16.302Z",
+  "summary": "REQ-6 and REQ-7 are not fully satisfied by the shown diff. The diff only shows a Footer change (including a hardcoded logo asset path) and does not show the required static asset replacement in frontend/public/assets/generated nor the Discord link update across the site. The Footer also adds new caffeine.ai attribution/UTM behavior that was not requested.",
+  "missing_requirements": [
+    {
+      "id": "REQ-6",
+      "requirement": "Replace the current static images used for the site logo and the hero/banner background with the user-uploaded image(s) by placing the uploaded artwork into the existing asset paths and filenames already referenced by the UI (so no code changes are required for the swap).",
+      "reason": "The diff does not show any changes under frontend/public/assets/generated (where the images must be served from) and does not show any hero/banner background image swap. Only a Footer component change is shown, which is insufficient to verify the required asset replacement and hero background rendering.",
+      "evidence": [
+        "frontend/src/components/Footer.tsx (only code change shown; no public asset changes present in diff summary)"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "requirement": "Ensure the Discord link used across the site is set to https://discord.gg/coopersmp and that the Contact section’s Discord button links to it (opens in a new tab), with no other Discord placeholder URLs remaining.",
+      "reason": "No changes are shown to site configuration or the Contact section (or any other component) that would set/update the Discord URL to https://discord.gg/coopersmp or ensure the Contact Discord button uses it.",
+      "evidence": [
+        "frontend-file-summaries.txt (ContactSection.tsx exists but no diff provided for it)",
+        "frontend-file-summaries.txt (frontend/src/siteConfig.ts exists but no diff provided for it)"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Added/changed footer attribution and outbound caffeine.ai link with dynamic UTM parameters based on window.location.hostname.",
+      "reason": "The BuildRequest only asked to swap logo/hero images and confirm/update the Discord link; it did not request adding new attribution links or UTM tracking logic.",
+      "evidence": [
+        "frontend/src/components/Footer.tsx (caffeineUrl with UTM params; caffeine.ai link added/used)"
+      ]
+    }
+  ],
+  "confidence": 0.72,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/components/Footer.tsx",
+    "project_state.json"
+  ]
+}
