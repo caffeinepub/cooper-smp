@@ -1,47 +1,110 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Swap Cooper SMP logo/hero artwork assets and confirm Discord link across UI",
+  "title": "Add Store & Vote sections, wire config + navigation, and swap in uploaded logo/hero background",
   "requirements": [
     {
-      "id": "REQ-6",
-      "summary": "Replace the site logo and hero/banner background images by swapping the static assets at the existing paths referenced by the UI.",
+      "id": "REQ-8",
+      "summary": "Add a new Store section and include it in the site navigation with smooth scrolling.",
       "acceptanceCriteria": [
-        "The hero background image renders from /assets/generated/cooper-smp-hero-bg.dim_1920x800.png and visually matches the user-uploaded banner artwork.",
-        "The site logo renders from /assets/generated/cooper-smp-logo.dim_512x512.png in the hero section, navbar, and footer and visually matches the user-uploaded logo artwork.",
-        "All image assets are served as static files from frontend/public/assets/generated (no backend routing for images).",
-        "Images render correctly on desktop and mobile without broken links (no 404s for the two asset URLs)."
+        "A new section exists with id=\"store\" and a visible heading \"Store\".",
+        "SiteNav includes a \"Store\" link that smooth-scrolls to the Store section on desktop and mobile.",
+        "App renders the Store section in a sensible position among existing sections (e.g., after Features and before How to Join, or near Contact).",
+        "The Store section contains clear placeholder content indicating where a store link/button will go (no broken links)."
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/generated/cooper-smp-hero-bg.dim_1920x800.png",
+          "path": "frontend/src/components/StoreSection.tsx",
+          "operation": "create",
+          "description": "Create a new StoreSection component rendering a section with id=\"store\" and heading \"Store\"; show placeholder content and a store call-to-action that is disabled/marked \"Coming soon\" when configured URL is a placeholder/missing, reading display text/URL from siteConfig."
+        },
+        {
+          "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Replace the existing hero/banner background static asset with the user-uploaded artwork while keeping the exact filename and location so current UI references continue to work."
+          "description": "Import and render StoreSection in a sensible order among existing sections (e.g., after FeaturesSection and before HowToJoinSection) so it appears in the main scroll flow."
+        },
+        {
+          "path": "frontend/src/components/SiteNav.tsx",
+          "operation": "modify",
+          "description": "Add a \"Store\" item to the navLinks list so both desktop and mobile menus smooth-scroll to the section id \"store\" via the existing scrollToSection helper."
         },
         {
           "path": "frontend/public/assets/generated/cooper-smp-logo.dim_512x512.png",
           "operation": "modify",
-          "description": "Replace the existing logo static asset with the user-uploaded artwork while keeping the exact filename and location so current UI references continue to work."
+          "description": "Replace/update the existing generated logo asset with the uploaded image at the same path so SiteNav/Footer/Hero reflect the new logo without code changes."
+        },
+        {
+          "path": "frontend/public/assets/generated/cooper-smp-hero-bg.dim_1920x800.png",
+          "operation": "modify",
+          "description": "Replace/update the existing generated hero background image with the derived uploaded image at the same path so the hero background reflects the new branding."
         }
       ]
     },
     {
-      "id": "REQ-7",
-      "summary": "Ensure the Discord link across the site is https://discord.gg/coopersmp and that the Contact section button links to it in a new tab.",
+      "id": "REQ-9",
+      "summary": "Add a new Vote section and include it in the site navigation with smooth scrolling.",
       "acceptanceCriteria": [
-        "The Discord button in the Contact section points to https://discord.gg/coopersmp and opens in a new tab.",
-        "No other Discord URL placeholders remain in the UI or configuration."
+        "A new section exists with id=\"vote\" and a visible heading \"Vote\".",
+        "SiteNav includes a \"Vote\" link that smooth-scrolls to the Vote section on desktop and mobile.",
+        "App renders the Vote section in a sensible position among existing sections (e.g., near Store).",
+        "The Vote section contains clear placeholder content indicating where vote site links/buttons will go (no broken links)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/VoteSection.tsx",
+          "operation": "create",
+          "description": "Create a new VoteSection component rendering a section with id=\"vote\" and heading \"Vote\"; show a list of vote links/buttons driven by siteConfig, and render clear placeholder/disabled UI when URLs are placeholders/missing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render VoteSection near StoreSection (e.g., directly after StoreSection) to keep related sections adjacent in the page flow."
+        },
+        {
+          "path": "frontend/src/components/SiteNav.tsx",
+          "operation": "modify",
+          "description": "Add a \"Vote\" item to the navLinks list so both desktop and mobile menus smooth-scroll to the section id \"vote\" via the existing scrollToSection helper."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Extend frontend siteConfig with Store/Vote placeholder values and wire new sections to read from it.",
+      "acceptanceCriteria": [
+        "siteConfig includes new fields for Store and Vote (e.g., storeUrl and voteUrls or similar) with safe placeholder values if the user has not provided real links.",
+        "Store and Vote sections read any URLs/text they display from siteConfig (not hardcoded).",
+        "If placeholder URLs are used, UI clearly indicates they are placeholders (e.g., disabled button or \"Coming soon\")."
       ],
       "file_operations": [
         {
           "path": "frontend/src/siteConfig.ts",
           "operation": "modify",
-          "description": "Verify site-wide Discord URL configuration is set to https://discord.gg/coopersmp and update it if any placeholder or different value exists."
+          "description": "Extend siteConfig with Store and Vote configuration fields (e.g., storeUrl/storeCtaLabel and voteLinks array) using safe placeholder values (such as empty strings) suitable for rendering \"Coming soon\"/disabled UI."
         },
         {
-          "path": "frontend/src/components/ContactSection.tsx",
+          "path": "frontend/src/components/StoreSection.tsx",
           "operation": "modify",
-          "description": "Verify the Contact section Discord button uses the configured Discord URL (siteConfig.discordUrl), points to https://discord.gg/coopersmp, and opens in a new tab (target/_blank with rel noopener noreferrer)."
+          "description": "Wire StoreSection to read all displayed text/URLs from siteConfig and to treat placeholder values as non-actionable (disabled button/no outgoing navigation)."
+        },
+        {
+          "path": "frontend/src/components/VoteSection.tsx",
+          "operation": "modify",
+          "description": "Wire VoteSection to read vote link labels/URLs from siteConfig and to treat placeholder values as non-actionable (disabled buttons/no outgoing navigation)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Update footer Quick Links to include smooth-scroll links to Store and Vote sections.",
+      "acceptanceCriteria": [
+        "Footer shows \"Store\" and \"Vote\" alongside existing quick links.",
+        "Clicking footer links smooth-scrolls to the corresponding section."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Footer.tsx",
+          "operation": "modify",
+          "description": "Add \"Store\" and \"Vote\" buttons to the Quick Links list, using the existing smooth-scroll pattern (scrollIntoView with behavior: 'smooth') to targets \"store\" and \"vote\"."
         }
       ]
     }

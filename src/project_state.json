@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 5,
+  "projectStateVersion": 7,
   "summary": "Website project for a public EU Minecraft server named Cooper SMP.",
   "architectural_notes": [
     "Discord invite URL should be sourced from the site config/constants and rendered consistently (e.g., nav + Contact section).",
@@ -11,7 +11,7 @@
     "Draft app/site was reported as expired and may require rebuild/redeploy before changes can be applied."
   ],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- User-uploaded Cooper SMP logo artwork (cooper-smp-logo.dim_512x512.png)\n- User-uploaded Cooper SMP banner/hero artwork (cooper-smp-hero-bg.dim_1920x800.png)",
+  "imageRequirements": "## Edit Images\n- Replace the current logo asset with the uploaded image (cooper-smp-logo.dim_512x512.png)\n- Create/update a hero background derived from the uploaded image (cooper-smp-hero-bg.dim_1920x800.png)",
   "existing_features": [
     {
       "id": "feature-create-a-responsive-marketing-website-for-the-public-eu-minecraft-server-named-cooper-smp-with-a-clear-landing-home-experience-that-communicates-the-server-name-and-that-it-is-an-eu-server",
@@ -60,6 +60,38 @@
         "REQ-6"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-add-a-new-store-section-to-the-cooper-smp-website-and-include-it-in-the-site-navigation-for-smooth-scrolling",
+      "title": "Add a new \"Store\" section to the Cooper SMP website and include it in the site navigation for smooth scrolling.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-new-vote-section-to-the-cooper-smp-website-and-include-it-in-the-site-navigation-for-smooth-scrolling",
+      "title": "Add a new \"Vote\" section to the Cooper SMP website and include it in the site navigation for smooth scrolling.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-extend-the-central-frontend-configuration-frontend-src-siteconfig-ts-to-include-placeholder-values-needed-by-the-new-store-and-vote-sections-and-wire-the-sections-to-read-from-this-configuration",
+      "title": "Extend the central frontend configuration (frontend/src/siteConfig.ts) to include placeholder values needed by the new Store and Vote sections, and wire the sections to read from this configuration.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-footer-quick-links-area-to-include-quick-scroll-links-to-the-new-store-and-vote-sections",
+      "title": "Update the footer \"Quick Links\" area to include quick-scroll links to the new Store and Vote sections.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -81,6 +113,18 @@
       "reqIds": [
         "REQ-7"
       ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Add a Store section/page to the website navigation (with placeholder content/links if needed).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Add a Vote section/page to the website navigation (with placeholder content/links if needed).",
+      "reqIds": [],
       "status": "pending"
     }
   ],

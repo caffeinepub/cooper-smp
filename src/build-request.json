@@ -1,61 +1,107 @@
 {
   "kind": "build_request",
-  "title": "Replace Cooper SMP logo and hero banner with uploaded artwork and confirm Discord link",
+  "title": "Add Store and Vote sections + swap in uploaded logo",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-6",
-      "text": "Replace the current static images used for the site logo and the hero/banner background with the user-uploaded image(s), by placing the chosen uploaded artwork into the existing asset paths and filenames already referenced by the UI (so no code changes are required for the swap). Use the same uploaded artwork for both logo and hero background unless separate logo vs banner crops are available from the uploads.",
+      "id": "REQ-8",
+      "text": "Add a new \"Store\" section to the Cooper SMP website and include it in the site navigation for smooth scrolling.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-2",
-          "msg-3"
+          "recent-messages"
         ],
         "quotes": [
-          "Upload this logo and banner and add this discord link https://discord.gg/coopersmp",
-          "Yes do"
+          "Upload this logo and add one store section and vote section"
         ]
       },
       "acceptanceCriteria": [
-        "The hero background image renders from /assets/generated/cooper-smp-hero-bg.dim_1920x800.png and visually matches the user-uploaded banner artwork.",
-        "The site logo renders from /assets/generated/cooper-smp-logo.dim_512x512.png in the hero section, navbar, and footer and visually matches the user-uploaded logo artwork.",
-        "All image assets are served as static files from frontend/public/assets/generated (no backend routing for images).",
-        "Images render correctly on desktop and mobile without broken links (no 404s for the two asset URLs)."
+        "A new section exists with id=\"store\" and a visible heading \"Store\".",
+        "SiteNav includes a \"Store\" link that smooth-scrolls to the Store section on desktop and mobile.",
+        "App renders the Store section in a sensible position among existing sections (e.g., after Features and before How to Join, or near Contact).",
+        "The Store section contains clear placeholder content indicating where a store link/button will go (no broken links)."
       ]
     },
     {
-      "id": "REQ-7",
-      "text": "Ensure the Discord link used across the site is set to https://discord.gg/coopersmp and that the Contact section’s Discord button links to it.",
+      "id": "REQ-9",
+      "text": "Add a new \"Vote\" section to the Cooper SMP website and include it in the site navigation for smooth scrolling.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-2"
+          "recent-messages"
         ],
         "quotes": [
-          "Upload this logo and banner and add this discord link https://discord.gg/coopersmp"
+          "Upload this logo and add one store section and vote section"
         ]
       },
       "acceptanceCriteria": [
-        "The Discord button in the Contact section points to https://discord.gg/coopersmp and opens in a new tab.",
-        "No other Discord URL placeholders remain in the UI or configuration."
+        "A new section exists with id=\"vote\" and a visible heading \"Vote\".",
+        "SiteNav includes a \"Vote\" link that smooth-scrolls to the Vote section on desktop and mobile.",
+        "App renders the Vote section in a sensible position among existing sections (e.g., near Store).",
+        "The Vote section contains clear placeholder content indicating where vote site links/buttons will go (no broken links)."
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Extend the central frontend configuration (frontend/src/siteConfig.ts) to include placeholder values needed by the new Store and Vote sections, and wire the sections to read from this configuration.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-messages"
+        ],
+        "quotes": [
+          "add one store section and vote section"
+        ]
+      },
+      "acceptanceCriteria": [
+        "siteConfig includes new fields for Store and Vote (e.g., storeUrl and voteUrls or similar) with safe placeholder values if the user has not provided real links.",
+        "Store and Vote sections read any URLs/text they display from siteConfig (not hardcoded).",
+        "If placeholder URLs are used, UI clearly indicates they are placeholders (e.g., disabled button or \"Coming soon\")."
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Update the footer \"Quick Links\" area to include quick-scroll links to the new Store and Vote sections.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-messages"
+        ],
+        "quotes": [
+          "add one store section and vote section"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Footer shows \"Store\" and \"Vote\" alongside existing quick links.",
+        "Clicking footer links smooth-scrolls to the corresponding section."
       ]
     }
   ],
   "constraints": [
-    "Do not edit files under frontend/src/components/ui or other immutablePaths listed in SYSTEM_CONTEXT.",
-    "Keep the backend as a single Motoko actor; no backend changes are required for this request."
+    "Do not edit files under frontend/src/components/ui (compose them if needed).",
+    "Do not modify frontend/src/hooks/useInternetIdentity.ts(x) or frontend/src/hooks/useActor.ts.",
+    "Keep the backend as-is (no new backend methods) unless strictly required for these sections."
   ],
   "nonGoals": [
-    "Adding new pages/sections (e.g., player status, server stats).",
-    "Changing the site’s overall theme/colors/typography beyond what is necessary to display the new images correctly.",
-    "Adding any new authentication or backend data storage."
+    "Implementing real e-commerce/checkout functionality.",
+    "Integrating third-party store/vote APIs.",
+    "Adding user accounts beyond Internet Identity."
   ],
   "imageRequirements": {
-    "required": [
-      "User-uploaded Cooper SMP logo artwork (cooper-smp-logo.dim_512x512.png)",
-      "User-uploaded Cooper SMP banner/hero artwork (cooper-smp-hero-bg.dim_1920x800.png)"
-    ],
-    "edits": []
+    "required": [],
+    "edits": [
+      "Replace the current logo asset with the uploaded image (cooper-smp-logo.dim_512x512.png)",
+      "Create/update a hero background derived from the uploaded image (cooper-smp-hero-bg.dim_1920x800.png)"
+    ]
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }

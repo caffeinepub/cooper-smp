@@ -5,6 +5,26 @@ export const siteConfig = {
   discordUrl: "https://discord.gg/coopersmp",
   description: "Join our friendly European Minecraft community server!",
   tagline: "Build, Explore, Survive Together",
+  
+  // Store configuration
+  store: {
+    enabled: false,
+    url: "",
+    ctaLabel: "Visit Store",
+    description: "Support the server and get exclusive perks, ranks, and cosmetics."
+  },
+  
+  // Vote configuration
+  vote: {
+    enabled: false,
+    description: "Vote for our server on these platforms to help us grow and earn rewards!",
+    links: [
+      { label: "Vote Site 1", url: "" },
+      { label: "Vote Site 2", url: "" },
+      { label: "Vote Site 3", url: "" }
+    ]
+  },
+  
   rules: [
     {
       title: "Be Respectful",

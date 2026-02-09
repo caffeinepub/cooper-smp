@@ -1,50 +1,90 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-09T17:12:16.304Z",
+  "generatedAt": "2026-02-09T17:18:28.867Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 2,
-    "implemented": 1,
+    "total": 4,
+    "implemented": 4,
     "items": [
       {
-        "id": "REQ-6",
-        "summary": "Replace the current static images used for the site logo and the hero/banner background with the user-uploaded image(s), by placing the chosen uploaded artwork into the existing asset paths and filenames already referenced by the UI (so no code changes are required for the swap). Use the same uploaded artwork for both logo and hero background unless separate logo vs banner crops are available from the uploads.",
+        "id": "REQ-10",
+        "summary": "Extend the central frontend configuration (frontend/src/siteConfig.ts) to include placeholder values needed by the new Store and Vote sections, and wire the sections to read from this configuration.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/public/assets/generated/cooper-smp-hero-bg.dim_1920x800.png",
-          "frontend/public/assets/generated/cooper-smp-logo.dim_512x512.png"
+          "frontend/src/siteConfig.ts",
+          "frontend/src/components/StoreSection.tsx",
+          "frontend/src/components/VoteSection.tsx"
         ],
         "matchedFiles": [
-          "frontend/public/assets/generated/cooper-smp-hero-bg.dim_1920x800.png",
-          "frontend/public/assets/generated/cooper-smp-logo.dim_512x512.png"
+          "frontend/src/siteConfig.ts",
+          "frontend/src/components/StoreSection.tsx",
+          "frontend/src/components/VoteSection.tsx"
         ]
       },
       {
-        "id": "REQ-7",
-        "summary": "Ensure the Discord link used across the site is set to https://discord.gg/coopersmp and that the Contact section’s Discord button links to it.",
-        "status": "missing",
+        "id": "REQ-11",
+        "summary": "Update the footer \"Quick Links\" area to include quick-scroll links to the new Store and Vote sections.",
+        "status": "implemented",
         "plannedFiles": [
-          "frontend/src/siteConfig.ts",
-          "frontend/src/components/ContactSection.tsx"
+          "frontend/src/components/Footer.tsx"
         ],
-        "matchedFiles": []
+        "matchedFiles": [
+          "frontend/src/components/Footer.tsx"
+        ]
+      },
+      {
+        "id": "REQ-8",
+        "summary": "Add a new \"Store\" section to the Cooper SMP website and include it in the site navigation for smooth scrolling.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/StoreSection.tsx",
+          "frontend/src/App.tsx",
+          "frontend/src/components/SiteNav.tsx",
+          "frontend/public/assets/generated/cooper-smp-logo.dim_512x512.png",
+          "frontend/public/assets/generated/cooper-smp-hero-bg.dim_1920x800.png"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/StoreSection.tsx",
+          "frontend/src/App.tsx",
+          "frontend/src/components/SiteNav.tsx",
+          "frontend/public/assets/generated/cooper-smp-logo.dim_512x512.png",
+          "frontend/public/assets/generated/cooper-smp-hero-bg.dim_1920x800.png"
+        ]
+      },
+      {
+        "id": "REQ-9",
+        "summary": "Add a new \"Vote\" section to the Cooper SMP website and include it in the site navigation for smooth scrolling.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/VoteSection.tsx",
+          "frontend/src/App.tsx",
+          "frontend/src/components/SiteNav.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/VoteSection.tsx",
+          "frontend/src/App.tsx",
+          "frontend/src/components/SiteNav.tsx"
+        ]
       }
     ]
   },
   "changedFiles": [
     "build-request.json",
-    "build-template/README.md",
-    "caffeine.lock.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
     "frontend/public/assets/generated/cooper-smp-hero-bg.dim_1920x800.png",
     "frontend/public/assets/generated/cooper-smp-logo.dim_512x512.png",
+    "frontend/src/App.tsx",
     "frontend/src/components/Footer.tsx",
+    "frontend/src/components/SiteNav.tsx",
+    "frontend/src/components/StoreSection.tsx",
+    "frontend/src/components/VoteSection.tsx",
+    "frontend/src/siteConfig.ts",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

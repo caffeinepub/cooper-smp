@@ -2,9 +2,13 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-replace-the-current-static-images-used-for-the-site-logo-and-the-hero-banner-background-with-the-user-uploaded-image-s-by-placing-the-chosen-uploaded-artwork-into-the-existing-asset-paths-and-filenames-already-referenced-by-the-ui-so-no-code-changes-are-required-for-the-swap-use-the-same-uploaded-artwork-for-both-logo-and-hero-background-unless-separate-logo-vs-banner-crops-are-available-from-the-uploads",
-      "featureTitle": "Replace the current static images used for the site logo and the hero/banner background with the user-uploaded image(s), by placing the chosen uploaded artwork into the existing asset paths and filenames already referenced by the UI (so no code changes are required for the swap). Use the same uploaded artwork for both logo and hero background unless separate logo vs banner crops are available from the uploads.",
-      "files": [],
+      "featureId": "feature-add-a-new-store-section-to-the-cooper-smp-website-and-include-it-in-the-site-navigation-for-smooth-scrolling",
+      "featureTitle": "Add a new \"Store\" section to the Cooper SMP website and include it in the site navigation for smooth scrolling.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/SiteNav.tsx",
+        "frontend/src/components/StoreSection.tsx"
+      ],
       "components": [
         "core-infrastructure@1.0.2",
         "shadcn-ui@1.0.0",
@@ -13,7 +17,65 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-6"
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-new-vote-section-to-the-cooper-smp-website-and-include-it-in-the-site-navigation-for-smooth-scrolling",
+      "featureTitle": "Add a new \"Vote\" section to the Cooper SMP website and include it in the site navigation for smooth scrolling.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/SiteNav.tsx",
+        "frontend/src/components/VoteSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-extend-the-central-frontend-configuration-frontend-src-siteconfig-ts-to-include-placeholder-values-needed-by-the-new-store-and-vote-sections-and-wire-the-sections-to-read-from-this-configuration",
+      "featureTitle": "Extend the central frontend configuration (frontend/src/siteConfig.ts) to include placeholder values needed by the new Store and Vote sections, and wire the sections to read from this configuration.",
+      "files": [
+        "frontend/src/components/StoreSection.tsx",
+        "frontend/src/components/VoteSection.tsx",
+        "frontend/src/siteConfig.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-footer-quick-links-area-to-include-quick-scroll-links-to-the-new-store-and-vote-sections",
+      "featureTitle": "Update the footer \"Quick Links\" area to include quick-scroll links to the new Store and Vote sections.",
+      "files": [
+        "frontend/src/components/Footer.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
       ],
       "confidence": "high"
     }

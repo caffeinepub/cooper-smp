@@ -17,6 +17,8 @@ export function SiteNav() {
     { label: 'Home', id: 'home' },
     { label: 'Features', id: 'features' },
     { label: 'How to Join', id: 'how-to-join' },
+    { label: 'Store', id: 'store' },
+    { label: 'Vote', id: 'vote' },
     { label: 'Rules', id: 'rules' },
     { label: 'Contact', id: 'contact' }
   ];

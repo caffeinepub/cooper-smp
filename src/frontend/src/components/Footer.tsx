@@ -35,6 +35,22 @@ export function Footer() {
               </li>
               <li>
                 <button 
+                  onClick={() => document.getElementById('store')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="hover:text-foreground transition-colors"
+                >
+                  Store
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => document.getElementById('vote')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="hover:text-foreground transition-colors"
+                >
+                  Vote
+                </button>
+              </li>
+              <li>
+                <button 
                   onClick={() => document.getElementById('rules')?.scrollIntoView({ behavior: 'smooth' })}
                   className="hover:text-foreground transition-colors"
                 >
